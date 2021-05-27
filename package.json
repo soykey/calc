@@ -1,0 +1,22 @@
+{
+  "name": "calc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tqso/calc.git"
+  },
+  "author": "tqso",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tqso/calc/issues"
+  },
+  "homepage": "https://github.com/tqso/calc#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

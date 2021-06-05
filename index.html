@@ -3,91 +3,66 @@
   <head>
     <meta charset='utf-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <title>Calculator</title>
+    <title>Calculator(rad)</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
   </head>
   <body>
-  <section class='section'>
-    <div class='container'>
-      <span id="formula"></span>
-      <h1 class='title' id="result">
-        Calculator
-      </h1>
-      <input type='text'  id='input' class='input' value='' style="width: 137px;" autofocus onkeydown="prsetr(event.keyCode)" autocomplete="off">
-      <div>
+    <section class='section'>
+      <div class='container'>
+        <span id="formula"></span>
+        <h1 class='title' id="result">
+          Calculator(rad)
+        </h1>
+        <input type='text'  id='input' value='' autofocus onkeydown="prsetr(event.keyCode)" autocomplete="off">
         <div>
-          <button class='button' onclick='add(this)' value='1'>1</button>
-          <button class='button' onclick='add(this)' value='2'>2</button>
-          <button class='button' onclick='add(this)' value='3'>3</button>
-          <button class='button' onclick='add(this)' value='+'>+</button>
+          <div>
+            <button class='button' onclick='input.value=""'>C</button>
+            <button class='button' id='del' onclick='del()'>Del</button>
+            <button class='button' id="ans" onclick='Ans()'>Ans</button>
+            <button class='button' onclick='add(this)' value='+'>+</button>
+          </div>
+          <div>
+            <button class='button' onclick='add(this)' value='1'>1</button>
+            <button class='button' onclick='add(this)' value='2'>2</button>
+            <button class='button' onclick='add(this)' value='3'>3</button>
+            <button class='button' onclick='add(this)' value='-'>-</button>
         </div>
         <div>
           <button class='button' onclick='add(this)' value='4'>4</button>
           <button class='button' onclick='add(this)' value='5'>5</button>
           <button class='button' onclick='add(this)' value='6'>6</button>
-          <button class='button' onclick='add(this)' value='-'>-</button>
+          <button class='button' onclick='add(this)' value='*'>x</button>
         </div>
         <div>
           <button class='button' value='7' onclick='add(this)'>7</button>
           <button class='button' value='8' onclick='add(this)'>8</button>
           <button class='button' value='9' onclick='add(this)'>9</button>
-          <button class='button' onclick='add(this)' value='*'>x</button>
-        </div>
-        <div>
-          <button class='button' value='0' onclick='add(this)'>0</button>
-          <button class='button' value='.' onclick='add(this)'>.</button>
-          <button class='button' onclick='calc()'>=</button>
           <button class='button' onclick='add(this)' value='/'>÷</button>
         </div>
         <div>
-          <button class='button' onclick='input.value=""'>C</button>
+          <button class='button' id="zero" value='0' onclick='add(this)'>0</button>
+          <button class='button' value='.' onclick='add(this)'>.</button>
+          <button class='button' onclick='pm()'>±</button>
+          <button class='button' onclick='calc()'>=</button>
+          
+        </div>
+        <div>
+          <button class='button' onclick='sine()'>Sin</button>
+          <button class='button' onclick='cosine()'>Cos</button>
+          <button class='button' onclick='tangent()'>Tan</button>
+          <button class='button' onclick='pi()'>π</button>
+        </div>
+        <div>
+          <button class='button' value='Math.sqrt(' onclick='add(this)'>√</button>
+          <button class='button' value='**2' onclick='add(this)'>x²</button>
+          <button class='button' value='(' onclick='add(this)'>(</button>
+          <button class='button' value=')' onclick='add(this)'>)</button>
         </div>
       </div> 
     </div>
   </section>
-  <script>
-    let hsty = []
-    const input = document.getElementById('input')
-    const result = document.getElementById('result')
-    const formula = document.getElementById('formula')
-    const add = (e) =>{
-      input.value += e.value
-    }
-    const clear = () => {
-      input.value = ''
-    }
-    const updateres = (value) => {
-      result.innerHTML=value
-    }
-    const updatefor = (value) => {
-      formula.innerHTML=value
-    }
-    const calc = () => {
-        const f = new Function('return '+input.value)
-        updateres(f().toString())
-        updatefor(input.value)
-        hsty.push(input.value)
-        clear()
-    }
-    let count = 0
-    let p = 0
-    const prsetr = (key) => {
-      if (key == 13) {
-        calc()
-      }
-      if (key == 38 &&count>0) {
-        if (p) {
-          p++
-          count = hsty.length
-        }
-        count--
-        input.value = hsty[count] 
-      }
-      if (key == 40 && count < hsty.length-1) {
-        count++
-        input.value = hsty[count]
-      }
-    }
-    </script>
+  <script src="script.js"></script>
   </body>
 </html>

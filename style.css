@@ -19,6 +19,8 @@ button {
 
 html {
     font-family: 'Noto Sans JP', sans-serif;
+    width: auto;
+    height: auto;
 }
 
 #formula {
